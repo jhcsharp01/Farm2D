@@ -1,0 +1,203 @@
+유니티 2D 
+
+Create Project -> Universal 2D
+
+1. 프로젝트 기본 설정
+해상도 : Free
+폴더 : Animations,
+        Prefabs
+        Scripts
+        Textures
+        Items
+
+2. Create -> 2D Object -> 
+    Sprites -> Square
+
+3. 2D 에셋 다운로드
+https://cupnooble.itch.io/sprout-lands-asset-pack
+
+4. 텍스처에 등록
+
+
+5. 2D에서의 캐릭터 움직임 기능 구현
+ PlayerMovement.cs 생성
+ Square에 연결
+
+6. 다운받은 에셋 중 캐릭터 이미지를 선택합니다.
+Sprite Mode -> Multiple 변경
+Pixel Per Unit 설정 16으로 잡으면 16X16
+(다운받은 스프라이트의 기반을 확인)
+Filter Mode : Point        : 픽셀 아트, 2D 게임(Retro 성향(도트))     (품질 낮음)
+Bilnear (이중(2D) 선형 보간) : 기본 설정 (4개 픽셀에 대한 평균으로 계산)      (품질 보통)
+Trilinear(삼중(3D) 선형 보간) : 3D 모델 텍스처 설정에서는 고려되는 모드라고 합니다.
+
+필터모드의 중요성 --> 이미지에 대한 확대나 축소가 필요한 작업에서 두드러짐.
+
+
+Open Sprite Editor 버튼을 눌러 스프라이트 에디터
+활성화
+(안되는 경우라면 Unity Registry에서 해당
+기능을 추가해야 합니다.)
+
+7. 스프라이트 애니메이션 만들기
+잘른 이미지를 선택해서 드래그 후
+씬에 넣어줍니다.
+MoveUp
+MoveDown
+MoveLeft
+MoveRight
+
+8. 같이 만들어진 컨트롤러를 제거합니다.
+(1개는 남깁니다. 플레이어 컨트롤러로 사용)
+
+9. 현재의 Square에 애니메이터 등록
+
+Samples(초당 프레임 수) 설정
+1초에 12프레임으로 재생되고있는
+현재의 애니메이션을
+1초에 4프레임으로 변경(스프라이트
+이미지 개수에 맞춰서 작업)
+
+10. Create new Animation Clip
+ --> MoveIdle
+
+11. Animator 안에 Blend Tree 등록
+
+파라미터 isMove 등록(Bool)
+        Blend -> horizontal(float)
+        vertical(float)
+12. PlayerMovement.cs 스크립트 수정(애니메이터 추가)
+
+13. 타일 맵 추가
+
+
+14. Assets / Textures /Tile Pallete 폴더 생성
+
+15. 다운 받은 타일 중에서 Grass 선택 후
+     스프라이트 에디터로 잘라줍니다.
+
+16. 그 후 타일 팔레트를 틀어 Grass 이미지를
+    팔레트에 드래그합니다.
+
+17. 타일 에셋에 대한 저장은 별도로 폴더를
+    만들어서 따로 작업합니다.
+
+18. 캐릭터와 타일 등의 order in layer를 잘 설정해
+   화면에 배치합니다.
+   order의 값이 클 수록 우선 배치됩니다.
+
+19. 2D 카메라 캐릭터 추적
+
+Window -> Package Manager -> Cinemachine 
+설치
+
+
+20 . 메인 카메라 설정
+Cinemachine Brain 추가
+
+21 . 추적 카메라 연결
+Create -> Cinemachine -> Target -> 2D Camera
+
+카메라의 Tracking Target 설정에
+플레이어의 Transform을 연결
+
+
+22. 데드 존 연결
+(시네머신에서의 데드존은 카메라가 멈추는 영역을
+의미합니다.)
+
+23. 타일 콜라이더 2D
+타일맵에 콜라이더를 넣어서 작업을 처리하며,
+타일 에셋에는 콜라이더에 대한 타입을 정할 수 있어서
+그 타입에 따라 충돌체로 쓸 건지, 아닌지를
+고를 수 있습니다.
+
+스프라이트 에디터의 커스텀 Physics를 통해 특정 이미지
+에 충돌 판정을 제거할 수 있어 다양한 연출 작업 가능
+ex) 계단 타일에서 계단을 밟을 수 있음.
+     집 입구 타일에 들어갈 수 있음.
+
+
+
+24. 아이템 기본 설정
+
+아이템은 트리거 체크
+플레이어와 닿으면 화면에서 사라짐.
+플레이어의 정보를 통해 획득한
+아이템의 개수 등을 파악 할 수 있음.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

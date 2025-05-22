@@ -1,0 +1,161 @@
+블렌드 트리
+애니메이션 컨트롤러에서
+여러 애니메이션 클립을 혼합하기 위한 도구
+
+캐릭터의 이동 , 회전 등 연속적인 값에 따라서
+애니메이션을 전환해야 하는 경우 사용됩니다.
+
+주로 고려되는 것) 방향 입력에 따라
+4방향, 8방향 이동..
+
+블렌드 트리 타입 설정
+1D    :  하나의 파라미터로 작업(걷다 뛰기)
+2D Cartesian : X,Y를 기준으로 애니메이션(방향 이동)
+2D Directional : 방향만 고려하고, 크기 고려 안함(방향에 맞는 공격 기능)
+Direct : 각 애니메이션 클립마다 설정
+
+타일맵
+2D 프로젝트에서 타일 에셋을 활용해 사용자가 직접
+배치할 수 있는 맵을 의미합니다.
+사각형, 육각형, 아이소메트리 등으로 구성되어있습니다.
+
+
+Cinemachine Brain
+현재 활성화된 카메라의 뷰를 메인 카메라에 반영해줍니다.
+
+Show Debug Text : 카메라 상태에 대한 디버그 확인
+Show Camera Frustum : 카메라의 절두체를 표시합니다.
+---> 카메라가 볼 수 있는 공간
+Ignore Time Scale : 타임스케일의 설정 무시 여부
+
+World Up Override : 지정된 게임 오브젝트의 Y축은 가상
+카메라의 월드 공간 Up 벡터 값을 정의합니다.
+작업하는 게임이 TopDown 뷰 환경일 경우 해당 값을 체크
+합니다.
+
+Channel Mask : 채널에 대한 가림 설정
+
+Update Method : 
+Smart : 타겟의 업데이트 방식에 따라 각 가상 카메라에 대한 업데이트
+fixed : fixedUpdate 쪽에서 사용
+lated : lateUpdate 쪽에서 사용
+manual : 유니티에서의 카메라 업데이트를 직접 제어합니다.
+
+Blend Update Method :
+씨네머신이 VR 카메라 전환(Blend) 작업 시의 업데이트 처리
+Fixed, Late
+
+Lens Mode Override : 카메라 렌즈  동작 방식에 대한 설정(투영)
+ None : 메인 카메라 설정 그대로
+ Perspective :    3D
+ Orthographic  : 2D
+
+Default Blend : 별도의 설정이 없다면, 해당 블렌딩 설정을 따라가게 됩니다.
+   Cut : 길이 0
+   Ease In Out : 부드럽고 매끄러운 전환
+   Ease In : 처음에 느리게 점점 빨라지는 전환
+   Ease out : 처음에는 빠르게, 갈수록 느려짐
+   Hard In   : 순간적으로 진입, 부드럽게 전환
+   Hard Out : 부드럽게 시작 , 순간적인 종료
+   Linear : 일정 속도로 전환
+
+가상 카메라에 추가하는 개념
+1. Position Composer
+대상 위치와 카메라의 상대적인 위치를
+제어하는 도구
+
+Dead Zone 체크를 통해
+카메라가 안움직이는 지점을 설정할 수 있습니다.
+
+Camera Distance : 추적 대상으로 부터
+카메라 축을 따라 유지해야 하는 거리
+
+Dead Zone Depth : 추적 대상이 된
+지정 카메라 거리 내에 있는 경우 카메라를
+z축을 따라 이동하지 말 것
+
+Screen Position : 스크린 화면 위치 설정
+
+Hard Limits : 카메라가 따라갈 수 있는 범위를
+제한하는 작업
+
+Target Tracking 
+Follow를 하거나, Lookat 작업을 할 때의 설정
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
