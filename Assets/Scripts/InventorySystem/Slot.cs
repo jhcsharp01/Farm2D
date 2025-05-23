@@ -37,6 +37,18 @@ namespace Assets.Scripts.InventorySystem
             count++;
         }
 
+        public void Remove()
+        {
+            if(count > 0)
+            {
+                count--;
+                if(count == 0)
+                {
+                    icon = null;
+                    type = CollectType.None;
+                }
+            }
+        }
 
     }
 }

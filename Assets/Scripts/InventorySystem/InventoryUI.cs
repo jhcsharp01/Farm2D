@@ -57,6 +57,12 @@ namespace Assets.Scripts.InventorySystem
                 }
             }
         }
+
+        public void Remove(int slot_idx)
+        {
+            player.Inventory.Remove(slot_idx);
+            SlotRenewal();
+        }
     }
 }
 

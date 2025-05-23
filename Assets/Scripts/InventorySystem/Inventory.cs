@@ -57,5 +57,12 @@ namespace Assets.Scripts.InventorySystem
                 }
             }
         }
+
+
+        public void Remove(int idx)
+        {
+            slots[idx].Remove();
+        }
+
     }
 }
