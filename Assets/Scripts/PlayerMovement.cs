@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStat
 {
     public float speed;          //플레이어의 이동 속도
-    public int count_of_harvest; //현재 수확물의 개수
+    //public int count_of_harvest; //현재 수확물의 개수
 }
 
 public class PlayerMovement : MonoBehaviour

@@ -22243,6 +22243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da07f6e869767c449c16af05b8543f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -22471,12 +22472,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1187147755}
   - component: {fileID: 1187147754}
+  - component: {fileID: 1187147760}
   - component: {fileID: 1187147756}
   - component: {fileID: 1187147757}
   - component: {fileID: 1187147759}
   - component: {fileID: 1187147758}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22566,7 +22568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat:
     speed: 5
-    count_of_harvest: 0
 --- !u!95 &1187147757
 Animator:
   serializedVersion: 7
@@ -22662,6 +22663,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1187147760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187147753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6f614a1432cf34d9b7fd17f5985a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory:
+    slots: []
 --- !u!1 &1539346477
 GameObject:
   m_ObjectHideFlags: 0
