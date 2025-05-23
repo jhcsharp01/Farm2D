@@ -25,7 +25,7 @@ namespace Assets.Scripts.InventorySystem
         }
 
         //추가 기능(추가 가능 상태에 대한 확인 후 등록)
-        public void Add(CollectType type)
+        public void Add(Harvest harvest)
         {
             //foreach ? or  for
             //1. 일반적으로는 for문 추천
@@ -41,9 +41,9 @@ namespace Assets.Scripts.InventorySystem
             //1) 아이템 추가 가능 여부 체크한 슬롯 등록
             foreach (var slot in slots)
             {
-                if(slot.type == type && slot.Addable())
+                if(slot.type == harvest.type && slot.Addable())
                 {
-                    slot.Add(type);
+                    slot.Add(harvest);
                     return;
                 }
             }           
@@ -52,7 +52,7 @@ namespace Assets.Scripts.InventorySystem
             {
                 if (slot.type == CollectType.None)
                 {
-                    slot.Add(type);
+                    slot.Add(harvest);
                     return;
                 }
             }

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.InventorySystem
 {
@@ -11,6 +8,7 @@ namespace Assets.Scripts.InventorySystem
     {
       
         public CollectType type;
+        public Sprite icon;
         public int count;
         public int max_count;
       
@@ -32,9 +30,10 @@ namespace Assets.Scripts.InventorySystem
         }
 
         //추가 가능 여부에 대한 함수
-        public void Add(CollectType type)
+        public void Add(Harvest harvest) //타입 + 아이콘 등록
         {
-            this.type = type;
+            type = harvest.type;
+            icon = harvest.icon;
             count++;
         }
 

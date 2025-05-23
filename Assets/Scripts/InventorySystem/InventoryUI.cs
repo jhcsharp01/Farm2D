@@ -22,14 +22,14 @@ namespace Assets.Scripts.InventorySystem
             }
         }
 
-        private void OnOFF()
+        public void OnOFF()
         {
+            SlotRenewal();
             //켜짐 여부에 따라 true와 false로 인벤토리를 키거나 끕니다.
             if(inventory.activeSelf)
             {
                 inventory.SetActive(false);
                 //켯을 경우 UI에 대한 갱신 진행
-                SlotRenewal();
             }
             else
             {
@@ -47,11 +47,15 @@ namespace Assets.Scripts.InventorySystem
                     if (player.Inventory.slots[i].type != CollectType.None)
                     {
                         //슬롯에 이미지와 개수 등을 갱신한다.
+                        slots[i].SetSlot(player.Inventory.slots[i]);
+                    }
+                    else
+                    {
+
+                        slots[i].SetEmpty();
                     }
                 }
-
             }
-
         }
     }
 }
