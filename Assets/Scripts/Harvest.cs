@@ -2,15 +2,8 @@ using Assets.Scripts.Items;
 using UnityEngine;
 
 
-public enum CollectType
-{
-    None, SEED
-}
-
-
 public class Harvest : MonoBehaviour
 {
-    public CollectType type;
     public Sprite icon; //이미지 등록
 
     private void OnTriggerEnter2D(Collider2D collision)
