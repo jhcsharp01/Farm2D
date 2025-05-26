@@ -7,6 +7,7 @@ namespace Assets.Scripts.Manager
 	{
         //연결할 매니저
         public ItemManager ItemManager;
+        public TileManager TileManager;
         #region Singleton
         public static GameManager instance;
 
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Manager
             DontDestroyOnLoad(gameObject);
 
             ItemManager = GetComponent<ItemManager>();
+            TileManager = GetComponent<TileManager>();
         }
         #endregion
     }

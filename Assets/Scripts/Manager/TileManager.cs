@@ -17,9 +17,30 @@ namespace Assets.Scripts.Manager
         {
 			foreach (var pos in interactables.cellBounds.allPositionsWithin)
 			{
-				interactables.SetTile(pos, hidden);
+				//TileBase는 타일 클래스의 기초 클래스
+				TileBase exist = interactables.GetTile(pos);
+
+				if(exist != null)
+				{
+                    interactables.SetTile(pos, hidden);
+                }
+				
 			}
         }
 
+		public bool isInteractable(Vector3Int pos)
+		{
+			var tile = interactables.GetTile(pos);
+
+			if (tile != null)
+			{
+				//현재 interactable로 설정한 타일의 이름을 배치합니다.
+				if (tile.name == "tiles_440")
+				{
+					return true;
+				}
+			}
+			return false;
+		}
     }
 }
