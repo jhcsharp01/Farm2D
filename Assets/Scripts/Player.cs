@@ -20,14 +20,14 @@ public class Player : MonoBehaviour
         var spawn = transform.position;
 
         //던지는 범위
-        float x = 1.0f;
-        float y = 1.0f;
-        Vector3 offset = new Vector3(x, y, 0).normalized;
+        float x = 5.0f;
+        
+        Vector3 offset = new Vector3(x, 0, 0);
 
         //오브젝트 생성
         var go = Instantiate(harvest, spawn + offset, Quaternion.identity);
         //오브젝트에 대한 물리적인 힘 작용
-        go.rbody.AddForce(offset * 2f, ForceMode2D.Impulse);
+        //go.rbody.AddForce(offset * 2f, ForceMode2D.Impulse);
 
     }
 }
