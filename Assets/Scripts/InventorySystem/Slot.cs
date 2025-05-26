@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Assets.Scripts.Items;
 
 namespace Assets.Scripts.InventorySystem
 {
@@ -7,14 +8,15 @@ namespace Assets.Scripts.InventorySystem
     public class Slot
     {
       
-        public CollectType type;
+       
+        public string item_name;
         public Sprite icon;
         public int count;
         public int max_count;
       
         public Slot()
         {
-            type = CollectType.None;
+            item_name = "";
             count = 0;
             max_count = 10; //본인이 기본으로 설정할 숫자로 등록
 
@@ -30,10 +32,10 @@ namespace Assets.Scripts.InventorySystem
         }
 
         //추가 가능 여부에 대한 함수
-        public void Add(Harvest harvest) //타입 + 아이콘 등록
+        public void Add(Item item) //타입 + 아이콘 등록
         {
-            type = harvest.type;
-            icon = harvest.icon;
+            item_name = item.data.itemName;
+            icon = item.data.icon;
             count++;
         }
 
@@ -45,10 +47,9 @@ namespace Assets.Scripts.InventorySystem
                 if(count == 0)
                 {
                     icon = null;
-                    type = CollectType.None;
+                    item_name = "";
                 }
             }
         }
-
     }
 }

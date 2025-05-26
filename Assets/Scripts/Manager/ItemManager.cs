@@ -1,37 +1,39 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Items;
+
 
 namespace Assets.Scripts.Manager
 {
     public class ItemManager : MonoBehaviour
     {
-        public Harvest[] harvests;
+        public Item[] items;
 
-        private Dictionary<CollectType, Harvest> harvestMap
-        = new Dictionary<CollectType, Harvest>();
+        private Dictionary<string, Item> harvestMap
+        = new Dictionary<string, Item>();
 
         private void Awake()
         {
-            foreach (var harvest in harvests)
+            foreach (var item in items)
             {
-                Add(harvest);
+                Add(item);
             }
         }
 
-        private void Add(Harvest harvest)
+        private void Add(Item item)
         {
-            if (!harvestMap.ContainsKey(harvest.type))
+            if (!harvestMap.ContainsKey(item.data.itemName))
             {
-                harvestMap.Add(harvest.type, harvest);
+                harvestMap.Add(item.data.itemName, item);
             }
         }
 
-        public Harvest GetItem(CollectType type)
+        public Item GetItem(string name)
         {
-            if (harvestMap.ContainsKey(type))
+            if (harvestMap.ContainsKey(name))
             {
-                return harvestMap[type];
+                return harvestMap[name];
             }
             return null;
         }

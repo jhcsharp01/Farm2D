@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Assets.Scripts.Manager;
+using Assets.Scripts.Items;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,7 +46,7 @@ namespace Assets.Scripts.InventorySystem
             {
                 for(int i = 0; i < slots.Count; i++)
                 {
-                    if (player.Inventory.slots[i].type != CollectType.None)
+                    if (player.Inventory.slots[i].item_name != "")
                     {
                         //슬롯에 이미지와 개수 등을 갱신한다.
                         slots[i].SetSlot(player.Inventory.slots[i]);
@@ -62,8 +63,8 @@ namespace Assets.Scripts.InventorySystem
         public void Remove(int slot_idx)
         {         
             //수확물
-            Harvest drop = GameManager.instance.ItemManager.
-                GetItem(player.Inventory.slots[slot_idx].type);
+            Item drop = GameManager.instance.ItemManager.
+                GetItem(player.Inventory.slots[slot_idx].item_name);
 
             if(drop != null)
             {

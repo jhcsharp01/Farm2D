@@ -11,6 +11,8 @@ namespace Assets.Scripts.Manager
 
 		//타일(상호작용 이미지 가리기)
 		[SerializeField] private Tile hidden;
+		//타일(상호작용)
+		[SerializeField] private Tile interacted;
 
 
         private void Start()
@@ -23,8 +25,7 @@ namespace Assets.Scripts.Manager
 				if(exist != null)
 				{
                     interactables.SetTile(pos, hidden);
-                }
-				
+                }				
 			}
         }
 
@@ -35,12 +36,18 @@ namespace Assets.Scripts.Manager
 			if (tile != null)
 			{
 				//현재 interactable로 설정한 타일의 이름을 배치합니다.
-				if (tile.name == "tiles_440")
+				if (tile.name == "hidden")
 				{
 					return true;
 				}
 			}
 			return false;
 		}
+
+		public void SetInteract(Vector3Int position)
+		{
+			interactables.SetTile(position, interacted);
+		}
+
     }
 }
