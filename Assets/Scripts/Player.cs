@@ -7,39 +7,47 @@ using Assets.Scripts.Items;
 public class Player : MonoBehaviour
 {
     public Inventory Inventory;
+    private TileManager tileManager;
 
     private void Awake()
     {
         //기본 인벤토리 4개 제공
         Inventory = new Inventory(4);
+        tileManager = GameManager.instance.TileManager;
     }
 
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            var position = new Vector3Int((int)transform.position.x,
-                (int)transform.position.y, 0);
-
-            if(GameManager.instance.TileManager.isInteractable(position))
+            if (tileManager != null)
             {
-                Debug.Log("check");
-                GameManager.instance.TileManager.SetInteract(position);
+                var position = new Vector3Int((int)transform.position.x,
+                                        (int)transform.position.y, 0);
+
+                if (GameManager.instance.TileManager.isInteractable(position))
+                {
+                    Debug.Log("check");
+                    GameManager.instance.TileManager.SetInteract(position);
+                }
             }
         }
-
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            //채집 기능
+        }
     }
 
     public void Drop(Item item)
     {
-     
+
         //위치 설정
         var spawn = transform.position;
 
         //던지는 범위
         float x = 5.0f;
-        
+
         Vector3 offset = new Vector3(x, 0, 0);
 
         //오브젝트 생성

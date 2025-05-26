@@ -13,7 +13,8 @@ namespace Assets.Scripts.Manager
 		[SerializeField] private Tile hidden;
 		//타일(상호작용)
 		[SerializeField] private Tile interacted;
-
+		//타일(심어진 위치)
+		[SerializeField] private Tile grown;
 
         private void Start()
         {
@@ -48,6 +49,26 @@ namespace Assets.Scripts.Manager
 		{
 			interactables.SetTile(position, interacted);
 		}
+
+		public void SetGrown(Vector3Int position)
+		{
+            interactables.SetTile(position, grown);
+        }
+
+		public string GetTile(Vector3Int pos)
+		{
+			if(interactables != null)
+			{
+				var tile = interactables.GetTile(pos);
+
+				if(tile != null)
+				{
+					return tile.name;
+				}
+			}
+			return "";
+		}
+
 
     }
 }

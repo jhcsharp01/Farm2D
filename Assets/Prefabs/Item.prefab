@@ -149,8 +149,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da07f6e869767c449c16af05b8543f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  grown: 0
   icon: {fileID: -1849564740737480309, guid: c42fd7239bb03894fb3efe92a8c50811, type: 3}
+  growns:
+  - {fileID: -639174418, guid: 7273a44ef68ecfd46b8a8888ce358bdf, type: 3}
+  - {fileID: 649064814, guid: 7273a44ef68ecfd46b8a8888ce358bdf, type: 3}
+  - {fileID: 1039164172, guid: 7273a44ef68ecfd46b8a8888ce358bdf, type: 3}
+  - {fileID: -1374238432, guid: 7273a44ef68ecfd46b8a8888ce358bdf, type: 3}
+  time: 0
 --- !u!50 &3963396682821310978
 Rigidbody2D:
   serializedVersion: 5
