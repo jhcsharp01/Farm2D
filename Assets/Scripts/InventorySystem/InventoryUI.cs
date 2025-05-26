@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -59,9 +60,17 @@ namespace Assets.Scripts.InventorySystem
         }
 
         public void Remove(int slot_idx)
-        {
-            player.Inventory.Remove(slot_idx);
-            SlotRenewal();
+        {         
+            //¼öÈ®¹°
+            Harvest drop = GameManager.instance.ItemManager.
+                GetItem(player.Inventory.slots[slot_idx].type);
+
+            if(drop != null)
+            {
+                player.Drop(drop);
+                player.Inventory.Remove(slot_idx);
+                SlotRenewal();
+            }
         }
     }
 }
