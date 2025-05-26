@@ -23,13 +23,19 @@ public class Player : MonoBehaviour
         {
             if (tileManager != null)
             {
-                var position = new Vector3Int((int)transform.position.x,
-                                        (int)transform.position.y, 0);
+                //월드 좌표 설정
+                var world = transform.position;
 
-                if (GameManager.instance.TileManager.isInteractable(position))
+                //월드 -> 셀
+                var grid = tileManager.Interactables.WorldToCell(world);
+
+                //var position = new Vector3Int((int)transform.position.x,
+                //                        (int)transform.position.y, 0);
+
+                if (GameManager.instance.TileManager.isInteractable(grid))
                 {
                     Debug.Log("check");
-                    GameManager.instance.TileManager.SetInteract(position);
+                    GameManager.instance.TileManager.SetInteract(grid);
                 }
             }
         }
@@ -37,6 +43,7 @@ public class Player : MonoBehaviour
         {
             //채집 기능
         }
+
     }
 
     public void Drop(Item item)
@@ -46,12 +53,19 @@ public class Player : MonoBehaviour
         var spawn = transform.position;
 
         //던지는 범위
-        float x = 5.0f;
+        var cellPos = tileManager.Interactables.WorldToCell(spawn);
 
-        Vector3 offset = new Vector3(x, 0, 0);
+
+        var dir = GetComponent<PlayerMovement>().last;
+
+        Vector3Int offset = cellPos + new Vector3Int(Mathf.RoundToInt(dir.x), Mathf.RoundToInt(dir.y), 0);
+
+        Vector3 center = tileManager.Interactables.GetCellCenterWorld(offset);
+
+        center += new Vector3(dir.x, dir.y, 0) * 0.2f;
 
         //오브젝트 생성
-        var go = Instantiate(item, spawn + offset, Quaternion.identity);
+        var go = Instantiate(item, center, Quaternion.identity);
         //오브젝트에 대한 물리적인 힘 작용
         //go.rbody.AddForce(offset * 2f, ForceMode2D.Impulse);
 

@@ -45,6 +45,8 @@ namespace Assets.Scripts.Manager
 			return false;
 		}
 
+		public Tilemap Interactables { get { return interactables; } }
+
 		public void SetInteract(Vector3Int position)
 		{
 			interactables.SetTile(position, interacted);

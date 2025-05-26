@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();    
     }
-    private Vector2 last = Vector2.down;
+    public Vector2 last = Vector2.down;
     void SetAnimateMovement(Vector3 direction)
     {
         if(animator != null)
